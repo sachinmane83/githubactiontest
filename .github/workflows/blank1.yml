@@ -23,39 +23,15 @@ jobs:
     service_account_key: ${{ secrets.GCP_SA_KEY }}
     export_default_credentials: true
 
-name: Create VM
+name: Authenticate on GCS
+  uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+  with:
+    version: '270.0.0'
+    service_account_email: ${{ secrets.GKE_EMAIL }}
+    service_account_key: ${{ secrets.GKE_KEY }}
 
-on:
-  workflow_dispatch:
+- name: Build
+  run: yarn build
 
-jobs:
-  create-vm:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
-
-      - name: Create VM
-        run: |
-          gcloud compute instances describe my-instance --zone=us-central1-a || \
-          gcloud compute instances create my-instance \
-              --zone=us-central1-a \
-              --machine-type=e2-medium \
-              --subnet=my-project-vpc \
-              --network-tier=PREMIUM \
-              --maintenance-policy=MIGRATE \
-              --service-account=123456789-compute@developer.gserviceaccount.com \
-              --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
-              --image=debian-10-buster-v20210217 \
-              --image-project=debian-cloud \
-              --boot-disk-size=10GB \
-              --boot-disk-type=pd-balanced \
-              --boot-disk-device-name=my-instance \
-              --no-shielded-secure-boot \
-       
+- name: Deploy
+  run: gsutil cp test gs://sachintest121/
