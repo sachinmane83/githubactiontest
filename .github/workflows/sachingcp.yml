@@ -25,7 +25,7 @@ jobs:
 
       - name: Create VM
         run: |
-         gcloud auth activate-service-account sachinmanedemo@responsive-gist-322605.iam.gserviceaccount.com --key-file=/home/manesachin0683/credentials.json --project=responsive-gist-322605
+         gcloud auth activate-service-account sachinmanedemo@responsive-gist-322605.iam.gserviceaccount.com --key-file=/home/manesachin0683/key.json --project=responsive-gist-322605
          gcloud auth list
          gcloud config set project responsive-gist-322605
          gcloud compute instances create VM1 --machine-type n1-standard-2 --zone europe-west2-a --project responsive-gist-322605
