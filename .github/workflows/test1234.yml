@@ -1,9 +1,12 @@
-- name: Set up Cloud SDK
-  uses: google-github-actions/setup-gcloud@master
-  with:
-     project_id: ${{ secrets.GCP_PROJECT_ID }}
-     service_account_key: ${{ secrets.GCP_SA_KEY }}
-   export_default_credentials: true
+steps:
+  - id: upload-file
+    uses: google-github-actions/upload-cloud-storage@main
+    with:
+      path: /home/manesachin0683
+      destination: bgs://sachintest121
 
-- name: Use gcloud CLI
-  run: gcloud inf
+  # Example of using the output
+  - id: uploaded-files
+    uses: foo/bar@master
+    env:
+      file: ${{steps.upload-file.outputs.uploaded}}
