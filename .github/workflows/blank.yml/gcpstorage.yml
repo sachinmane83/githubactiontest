@@ -1,0 +1,13 @@
+steps:
+  - id: upload-file
+    uses: google-github-actions/upload-cloud-storage@main
+    with:
+      path: /path/to/file
+      destination: bucket-name/file
+
+  # Example of using the output
+  - id: uploaded-files
+    uses: foo/bar@master
+    env:
+      file: ${{steps.upload-file.outputs.uploaded}}
+
