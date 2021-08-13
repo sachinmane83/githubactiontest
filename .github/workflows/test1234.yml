@@ -1,13 +1,9 @@
-- uses: actions-hub/gcloud@master
-  env:
-    PROJECT_ID: responsive-gist-322605
-    APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+- name: Set up Cloud SDK
+  uses: google-github-actions/setup-gcloud@master
   with:
-    args: info
-- uses: actions-hub/gcloud@master
-  env:
-    PROJECT_ID: responsive-gist-322605
-    APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-  with:
-    args: cp test gs://sachintest121/
-     cli: gsutil
+     project_id: ${{ secrets.GCP_PROJECT_ID }}
+     service_account_key: ${{ secrets.GCP_SA_KEY }}
+   export_default_credentials: true
+
+- name: Use gcloud CLI
+  run: gcloud inf
