@@ -1,13 +1,13 @@
 - uses: actions-hub/gcloud@master
   env:
-    PROJECT_ID: test
+    PROJECT_ID: responsive-gist-322605
     APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
   with:
     args: info
 - uses: actions-hub/gcloud@master
   env:
-    PROJECT_ID: test
+    PROJECT_ID: responsive-gist-322605
     APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
   with:
     args: cp test gs://sachintest121/
-    cli: gsutil
+     cli: gsutil
