@@ -1,0 +1,12 @@
+- name: Authenticate on GCS
+  uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+  with:
+    version: '270.0.0'
+    service_account_email: ${{ secrets.GKE_EMAIL }}
+    service_account_key: ${{ secrets.GKE_KEY }}
+
+- name: Build
+   run: yarn build
+
+-  name: Deploy
+      run: gsutil cp -r dist/* gs://some-storage/
