@@ -5,8 +5,5 @@
     service_account_email: ${{ secrets.GKE_EMAIL }}
     service_account_key: ${{ secrets.GKE_KEY }}
 
-- name: Build
-   run: yarn build
-
 -  name: Deploy
       run: gsutil cp -r dist/* gs://some-storage/
