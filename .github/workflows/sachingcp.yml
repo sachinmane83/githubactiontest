@@ -33,4 +33,4 @@ jobs:
          gcloud config set project responsive-gist-322605
          
       - name:  gstil command
-        run : gsutil ls
+        run : gsutil cp test gs://sachintest121/
