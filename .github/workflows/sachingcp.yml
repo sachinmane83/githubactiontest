@@ -34,8 +34,9 @@ jobs:
          gcloud config set project responsive-gist-322605
          
       - name: gsutil command
-        run : gsutil rm -r gs://sachinmane1983 \
-              gsutil rm -r gs://sachintest121
+        run : gcloud compute instances create sachin121
+              gcloud compute instances create sachin321
+   
        
             
    
