@@ -32,8 +32,9 @@ jobs:
          gcloud config configurations list
          gcloud config set project responsive-gist-322605
          
-      - name: gstil command
+      - name: gsutil command
         run : gsutil rm -r gs://sachinmane1983
               gsutil rm -r gs://sachintest121
-         ignore_error : yes
+          ignore_errors: yes
+            
    
