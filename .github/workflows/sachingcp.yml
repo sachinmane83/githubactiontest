@@ -37,7 +37,7 @@ jobs:
         run : gsutil rm -r gs://sachintest121/
         continue-on-error: true
       - name: gsutil command
-        run : gsutil rm -r gs://sachingitgub1/
+        run : gsutil rm -r gs://sachingitgub/
               
               
    
