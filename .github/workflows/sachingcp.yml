@@ -35,6 +35,7 @@ jobs:
          
       - name: gsutil command
         run : gsutil rm -r gs://sachintest121/
+        ignore_errors: yes
       - name: gsutil command
         run : gsutil rm -r gs://sachingitgub1/
               
