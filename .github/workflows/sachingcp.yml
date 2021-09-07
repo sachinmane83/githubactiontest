@@ -34,5 +34,5 @@ jobs:
          
       - name:  gstil command
         run : gsutil mb gs://sachingitgub
-        continue-on-error: true
-        run : gsutil mb gs://sachinmane1983
+              continue-on-error: true
+              gsutil mb gs://sachinmane1983
