@@ -22,6 +22,7 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
+          ignore_errors: yes
 
       - name: set project
         run: |
@@ -35,6 +36,6 @@ jobs:
       - name: gsutil command
         run : gsutil rm -r gs://sachinmane1983
               gsutil rm -r gs://sachintest121
-          ignore_errors: yes
+       
             
    
