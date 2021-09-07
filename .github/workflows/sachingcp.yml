@@ -35,7 +35,7 @@ jobs:
          
       - name: gsutil command
         run : gsutil rm -r gs://sachintest121/
-        run : gsutil rm -r gs://sachingitgub1/
+              gsutil rm -r gs://sachingitgub1/
               
    
        
